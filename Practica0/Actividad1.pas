@@ -1,5 +1,7 @@
+{
 a)Compile y ejecute el programa descargado
 b) Responda ¿Qué hace el programa?--> genera un número aleatorio de 0 a 99 y lo imprime.
+}
 
 program NumAleatorio;
 var ale: integer;
@@ -13,7 +15,7 @@ writeln ('El número aleatorio generado es: ', ale); {devuelve un valor aleatori
 readln;
 end.
 
-c)Modifique el programa para que imprima 20 números aleatorios.
+{ c)Modifique el programa para que imprima 20 números aleatorios. }
 
 program ProgramaNumAleatorio;
 var ale,i: integer;
@@ -28,8 +30,10 @@ begin
     readln;
 end.
 
+{
 d) Modifique el programa para que imprima N números aleatorios en el rango (A,B), 
 donde N, A y B son números enteros que se leen por teclado.
+}
 
 program ProgramaNumAleatorio;
 var
@@ -47,10 +51,11 @@ begin
     readln;
 end.
 
+{
 e) Modifique el programa para que imprima números aleatorios en el rango (A,B) 
 hasta que se genere un valor igual a F, el cual no debe imprimirse. F, A y B
 son números enteros que se leen por teclado.
-
+}
 program ProgramaNumAleatorio;
 var 
   ale,F,A,B: integer;
