@@ -195,6 +195,57 @@ begin
   writeln;
 end;
 
+procedure InformarExistenciaNombreSocio (a:arbol);
+{. Leer un nombre e informar si existe o no existe un socio con ese nombre. 
+Debe invocar a un módulo recursivo que reciba el nombre leído y retorne verdadero 
+o falso.}
+	Function EncontrarNombre(a:arbol;nom:cadena15):boolean;
+	begin
+	 If(a=nil) then EncontrarNombre:=false
+	 else begin
+	      If(nom = a^.dato.nombre) then EncontrarNombre:=True
+	                   else If(nom < a^.dato.nombre) then EncontrarNombre:=EncontrarNombre(a^.HI,nom)
+	                                      else EncontrarNombre:=EncontrarNombre(a^.HD,nom);
+	      end;
+	end;}
+
+
+var 
+ nom:cadena15;
+begin
+  writeln;
+  writeln('Ingrese el nombre a buscar');
+  readln(nom);
+  writeln ('----- Informar si existe o no el socio ',nom, ' ----->');
+  writeln;
+  if (EncontrarNombre()) 
+  then writeln ('Existe')
+  else begin
+         writeln;
+         writeln ('No existe');
+         writeln;
+       end;
+  writeln;
+  writeln ('//////////////////////////////////////////////////////////');
+  writeln;
+end;
+
+procedure InformarCantidadSocios(a:arbol);
+{Informar la cantidad de socios. Debe invocar a un módulo recursivo que 
+retorne dicha cantidad.}
+	Function Cantidad(a:arbol):integer;
+	begin
+	   if(a<>nil)then Cantidad:=1+Cantidad(a^.HI)+Cantidad(a^.HD)
+	             else Cantidad:=0;   
+	end;
+ 
+begin
+  writeln;
+  writeln ('----- Cantidad de socio ----->', Cantidad(a));
+  writeln ('//////////////////////////////////////////////////////////');
+  writeln;
+end;
+
 var a: arbol; 
 Begin
   randomize;
@@ -203,8 +254,7 @@ Begin
   InformarSociosOrdenDecreciente (a);
   InformarNumeroSocioConMasEdad (a);
   AumentarEdadNumeroImpar (a);
-  { InformarExistenciaNombreSocio (a); COMPLETAR
-    InformarCantidadSocios (a); COMPLETAR
-    InformarPromedioDeEdad (a); COMPLETAR
-  }   
+  InformarExistenciaNombreSocio (a); 
+  InformarCantidadSocios (a);
+    //InformarPromedioDeEdad (a); COMPLETAR
 End.
